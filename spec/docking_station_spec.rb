@@ -3,9 +3,6 @@ require 'bike'
 
 describe DockingStation do
 
-  # it 'has a maximum capacity of 5' do
-  #   expect(subject.capacity).to eq(1)
-  # end
   describe '#release_bike' do
     it 'should not release a bike when none are available' do
       expect{subject.release_bike}.to raise_error 'No bikes available'
@@ -30,11 +27,11 @@ describe DockingStation do
     it 'should dock a bike' do
       bike = Bike.new
       subject.dock(bike)
-      expect(subject.bike).to eq(bike)
+      expect(subject.bikes).to include(bike)
     end
 
     it 'should not dock a bike if at capacity' do
-      subject.dock(Bike.new)
+      20.times {subject.dock(Bike.new)}
       expect{subject.dock(Bike.new)}.to raise_error 'Docking station is at capacity'
     end
   end
