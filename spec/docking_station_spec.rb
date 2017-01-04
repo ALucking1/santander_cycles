@@ -3,6 +3,13 @@ require 'bike'
 
 describe DockingStation do
 
+  describe 'capacity' do
+    it 'allows the user to set capacity for the docking station' do
+      ds = DockingStation.new(10)
+      expect(ds.capacity).to eq(10)
+    end
+  end
+
   describe '#release_bike' do
     it 'should not release a bike when none are available' do
       expect{subject.release_bike}.to raise_error 'No bikes available'
