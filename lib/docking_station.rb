@@ -9,6 +9,7 @@ class DockingStation
   def initialize(capacity=DEFAULT_CAPACITY)
     @capacity = capacity
     @bikes = []
+    @working_bikes = []
   end
 
   def dock(bike)
@@ -17,13 +18,8 @@ class DockingStation
   end
 
   def release_bike
+    find_working_bikes
     fail 'No bikes available' if docking_station_empty?
-    @working_bikes = []
-    @bikes.each do |bike|
-      if bike.broken == false
-      @working_bikes << @bikes.delete(bike)
-      end
-    end
     @working_bikes.pop
   end
 
@@ -34,7 +30,15 @@ class DockingStation
   end
 
   def docking_station_empty?
-    @bikes.empty?
+    @working_bikes.empty?
+  end
+
+  def find_working_bikes
+    @bikes.each do |bike|
+      if bike.broken == false
+      @working_bikes << @bikes.delete(bike)
+      end
+    end
   end
 
 end
