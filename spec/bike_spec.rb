@@ -5,7 +5,7 @@ describe Bike do
 
   it 'can be reported broken' do
     subject.report_broken
-    expect(bike.broken).to eq(true)
+    expect(subject.broken).to eq(true)
   end
 
 end

@@ -18,7 +18,13 @@ class DockingStation
 
   def release_bike
     fail 'No bikes available' if docking_station_empty?
-    @bikes.pop
+    @working_bikes = []
+    @bikes.each do |bike|
+      if bike.broken == false
+      @working_bikes << bike
+      end
+    end
+    @working_bikes.pop
   end
 
   private
