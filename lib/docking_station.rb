@@ -4,7 +4,7 @@ class DockingStation
 
   DEFAULT_CAPACITY = 20
 
-  attr_reader :bikes, :capacity
+  attr_reader :bikes, :capacity, :working_bikes
 
   def initialize(capacity=DEFAULT_CAPACITY)
     @capacity = capacity
@@ -21,7 +21,7 @@ class DockingStation
     @working_bikes = []
     @bikes.each do |bike|
       if bike.broken == false
-      @working_bikes << bike
+      @working_bikes << @bikes.delete(bike)
       end
     end
     @working_bikes.pop
