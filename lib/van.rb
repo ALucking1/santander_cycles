@@ -1,8 +1,11 @@
 class Van
 
-  attr_reader :broken_bikes
+  DEFAULT_CAPACITY = 20
 
-  def initialize
+  attr_reader :broken_bikes, :capacity
+
+  def initialize(capacity=DEFAULT_CAPACITY)
+    @capacity = capacity
     @broken_bikes = []
   end
 
