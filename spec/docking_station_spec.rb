@@ -23,10 +23,10 @@ let(:bike) {double :bike}
     end
 
     it 'releases working bikes' do
-      allow(bike).to receive(:working?).and_return(true)
+      allow(bike).to receive(:broken).and_return(false)
       subject.dock(bike)
-      released_bike = subject.release_bike
-      expect(released_bike).to be_working
+      subject.release_bike
+      expect(subject.bikes).not_to include(bike)
     end
   end
 
