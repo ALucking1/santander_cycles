@@ -45,7 +45,7 @@ let(:bike) {double :bike}
     end
   end
 
-  describe 'van' do
+  xdescribe 'van' do
     it 'should collect broken bikes' do
     allow(bike).to receive(:broken).and_return(false)
     allow(bike).to receive(:report_broken).and_return(true)
