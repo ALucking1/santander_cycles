@@ -9,7 +9,7 @@ class Van
     @collected_bikes = []
   end
 
-  def collect_broken_bikes(*bikes)
+  def collect_broken_bikes(bikes)
     @collected_bikes << bikes
   end
 
